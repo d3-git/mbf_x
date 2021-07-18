@@ -119,29 +119,40 @@ def login():
                 print (" *! Tidak Ada Koneksi")
                 exit()
     elif lg == 'C' or lg == 'c':
-        cookie = raw_input(" *-> Cookie : ") # Login Cookie
         try:
-                data = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = {
-                'user-agent'                : 'Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36', # Jangan Di Ganti !!!
-                'referer'                   : 'https://m.facebook.com/',
-                'host'                      : 'm.facebook.com',
-                'origin'                    : 'https://m.facebook.com',
-                'upgrade-insecure-requests' : '1',
-                'accept-language'           : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
-                'cache-control'             : 'max-age=0',
-                'accept'                    : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'content-type'              : 'text/html; charset=utf-8'
-                }, cookies = {
-                'cookie'                    : cookie
-                })
-                find_token = re.search('(EAAA\w+)', data.text)
-                hasil    = " *! Cookie Mati" #if (find_token is None) else '\n* Your fb access token : ' + find_token.group(1)
-        except requests.exceptions.ConnectionError:
-		print " *! Tidak Ada Koneksi"
-        cookie = open("login.txt", 'w')
-        cookie.write(find_token.group(1))
-        cookie.close()
-        komen()
+		cookie = raw_input(" *-> Cookie : ")
+                data = {
+                            'user-agent' : 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/68.0.3438.0 Safari/537.36', # don't change this user agent.
+                                'referer' : 'https://m.facebook.com/',
+                                'host' : 'm.facebook.com',
+                                'origin' : 'https://m.facebook.com',
+                                'upgrade-insecure-requests' : '1',
+                                'accept-language' : 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
+                                'cache-control' : 'max-age=0',
+                                'accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                'content-type' : 'text/html; charset=utf-8',
+                                 'cookie' : cookie }
+                coki = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers = data)
+                cari = re.search('(EAAA\w+)', coki.text)
+                hasil = cari.group(1)
+                pup = open('coki.log', 'w')
+                pup.write(cookie)
+                pup.close()
+                pip = open('login.txt', 'w')
+                pip.write(hasil)
+                pip.close()
+                komen()
+        except AttributeError:
+                print ' *! Cookie Salah'
+                time.sleep(3)
+                login()
+        except UnboundLocalError:
+                print ' *! Cookie Salah'
+                time.sleep(3)
+                login()
+        except requests.exceptions.SSLError:
+                print ' *! Tidak Ada Koneksi'
+                exit()
     elif lg == '0' or lg == '00':
         os.sys.exit()
     else:
@@ -155,6 +166,10 @@ def menu():
     nm = a['name']
     id = a['id']
     tl = a['birthday'].replace("/","-")
+  except Exception as e:
+    print (' *! Token Invalid')
+    time.sleep(1)
+    login()
   except KeyError:
     print (' *! Token Invalid')
     time.sleep(1)
