@@ -155,6 +155,14 @@ def menu():
     nm = a['name']
     id = a['id']
     tl = a['birthday'].replace("/","-")
+  except KeyError:
+    print (' *! Token Invalid')
+    time.sleep(1)
+    os.system('rm -rf login.txt')
+    login()
+  except requests.exceptions.ConnectionError:
+    print (' *! Token Invalid')
+    os.sys.exit()
   except Exception as e:
     print (' *! Token Invalid')
     time.sleep(1)
