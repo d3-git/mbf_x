@@ -6,11 +6,11 @@
 
 ∆ pkg install python2
 
-∆ pip install requests
+∆ pip2 install requests
 
-∆ pip install mechanize
+∆ pip2 install mechanize
 
-∆ pip install bs4
+∆ pip2 install bs4
 
 ∆ git clone https://github.com/R0ZHAK/mbf_x
 
