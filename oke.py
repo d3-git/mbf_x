@@ -161,7 +161,7 @@ def menu():
     os.system('rm -rf login.txt')
     login()
   except requests.exceptions.ConnectionError:
-    print (' *! Token Invalid')
+    print (' *! Tidak Ada koneksi')
     os.sys.exit()
   except Exception as e:
     print (' *! Token Invalid')
