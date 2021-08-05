@@ -16,4 +16,4 @@
 
 ∆ cd mbf_x
 
-∆ python2 Oke.py
+∆ python2 oke.py
