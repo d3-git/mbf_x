@@ -24,7 +24,7 @@ ua = ('Mozilla/5.0 (Linux; Android 5.0; Lenovo A1000 Build/S100; wv) AppleWebKit
 logo = """ __  __ ____  _____
 |  \/  | __ )|  ___| *au : rozhak
 | |\/| |  _ \| |_    *fb : fb.com/rozhak.xyz
-| |  | | |_) |  _|   *gh : github.com/r0zhak
+| |  | | |_) |  _  *gh : github.com/r0zhak
 |_|  |_|____/|_|     *yt : youtube.com/rozhakid"""
 mbasic_h={"Host":"mbasic.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
 free_h={"Host":"free.facebook.com","cache-control":"max-age=0","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"}
